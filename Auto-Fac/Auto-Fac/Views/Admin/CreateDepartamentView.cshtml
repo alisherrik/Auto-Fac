@@ -1,0 +1,27 @@
+﻿@model Auto_Fac.ViewModels.FacultyDepartamentModelView
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_LayoutAdmin";
+}
+<div class="container">
+        <div class="card col-md-12">
+            <div class="card-header">
+                <h2>@Model.Faculty.Name</h2>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Admin" asp-action="CreateDepartament" method="post">
+                    <div class="form-group">
+                        <label class="col-form-label">@Model.Faculty.Name</label>
+                        <input type="hidden" asp-for="Faculty.id">
+                        <input type="hidden" asp-for="Faculty.Name">
+                        <input asp-for="Departament.Name" type="text" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Next</button>
+                </form>
+                
+            </div>
+        </div>
+</div>
+
+

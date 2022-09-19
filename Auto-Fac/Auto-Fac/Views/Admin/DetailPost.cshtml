@@ -1,0 +1,30 @@
+﻿@model Post
+
+@{
+    ViewBag.Title = "DetailPost";
+    Layout = "_LayoutAdmin";
+    var PhotoFilePath = "~/images/" + (Model.photo ?? "Example.png");
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <p>@Model.DateTime</p>
+            <h2>@Model.title</h2>
+        </div>
+        <div class="card-body" >
+            <div>
+                <img src="@PhotoFilePath" asp-append-version="true">
+            </div>
+            <div>
+                <p>@Model.Text</p>
+            </div>
+    
+        </div>
+        <div>
+            <a asp-controller="Admin" asp-action="EditPostView" class="btn btn-outline-dark" asp-route-id="@Model.id"> Edit Post</a>
+            <a asp-controller="Admin" asp-action="DeletePost" asp-route-id="@Model.id" class="btn-danger"> Delete Post</a>
+            
+        </div>
+    </div>
+</div>

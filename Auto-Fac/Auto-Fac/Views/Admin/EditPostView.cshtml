@@ -1,0 +1,36 @@
+﻿@model Auto_Fac.ViewModels.CreatePostViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_LayoutAdmin";
+}
+<form enctype="multipart/form-data" asp-controller="Admin" asp-action="EditPost" method="post">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>New Post</h2>
+            </div>
+            <div class="card-body">
+                <div>
+                    <input type="hidden" asp-for="id">
+                    <label>Title Post</label>
+                    <input type="text" class="form-control" asp-for="title">
+                </div>
+                <div>
+                    <label>Text Post</label>
+                    <textarea  asp-for="Text" class="form-control"></textarea>
+                </div>
+                <div class="custom-file">
+                    <label>Text Post</label>
+                    <input type="file" asp-for="photo"  class="form-control custom-file-input">
+                    <label asp-for="photo" class="custom-file-label">Choose File...</label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-info">Edit Post</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</form>
+

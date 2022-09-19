@@ -1,0 +1,29 @@
+﻿@model Auto_Fac.ViewModels.AdminIndexViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_LayoutAdmin";
+    if (Model.UserIsLogged == UserIsLogged.Active)
+    {
+        ViewBag.IsAuth = "True";
+    }
+}
+<div class="container">
+    <div class="row">
+        @foreach (var post in Model.Post)
+        {
+            var PhotoFilePath = "~/images/" + (post.photo ?? "Example.png");
+            <div class="col-md-4 " >
+                <div class="card card-default">
+                    <img src="@PhotoFilePath" class="card-img-top" alt="..." asp-append-version="true">
+                    <div class="card-body">
+                        <h3 class="card-title">@post.title</h3>
+                        <p>@post.DateTime</p>
+                        <a asp-controller="Admin" asp-action="DetailPost" asp-route-id="@post.id" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                
+            </div>
+        }
+    </div>
+</div> 

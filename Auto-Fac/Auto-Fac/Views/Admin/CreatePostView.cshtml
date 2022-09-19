@@ -1,0 +1,48 @@
+﻿@model Auto_Fac.ViewModels.CreatePostViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_LayoutAdmin";
+}
+<form enctype="multipart/form-data" asp-controller="Admin" asp-action="CreatePost" method="post">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>New Post</h2>
+            </div>
+            <div class="card-body">
+                <div>
+                    <label>Title Post</label>
+                    <input type="text" class="form-control" asp-for="title">
+                </div>
+                <div>
+                    <label>Text Post</label>
+                    <textarea  asp-for="Text" class="form-control"></textarea>
+                </div>
+                <div class="custom-file">
+                        <input type="file" asp-for="photo" class="form-control custom-file-input">
+                        <label class="custom-file-label" >Choose File...</label>
+                    </div>
+                <div>
+                    <button type="submit" class="btn btn-success">Create Post</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</form>
+@* @section Scripts *@
+@* { *@
+@*     <script> *@
+@*     $(document).ready(function() { *@
+@*         alert("ss"); *@
+@*       $('.custom-file-input').on("change",function() { *@
+@* *@
+@*         let fileName =$(this).val().split("\\").pop(); *@
+@*         $(this).next('.custom-file-label').html(fileName); *@
+@*       }); *@
+@*     }); *@
+@*     </script> *@
+@* } *@
+
+

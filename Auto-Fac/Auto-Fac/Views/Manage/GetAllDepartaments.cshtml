@@ -1,0 +1,35 @@
+﻿@model Auto_Fac.ViewModels.FacultyDepartamentModelView
+
+@{
+    ViewBag.Title = "Departaments";
+    Layout = "_LayoutAdmin";
+}
+<div class="container-fluid">
+    <div class="card-header">
+            <div class="card-title">@Model.Faculty.Name </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                @foreach (var item in Model.IeEnumerableDepartaments)
+                {
+                    <div class="col-md-4 " style="margin-bottom:10px;">
+                        <div class="card card-default">
+                            <div class="card-body">
+                                <h3 class="card-title">@item.Name</h3>
+                                <a class="btn btn-info" asp-controller="Manage" asp-action="GetAllProfessions" asp-route-id="@item.id">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="col-md-4" style="margin-bottom:10px;">
+                    <div class="card card-default">
+                        <div class="card-body">
+                            <a class="btn btn-success form-control" asp-controller="Admin" asp-action="CreateDepartamentView" asp-route-id="@Model.Faculty.id"> + New Departamnet</a>
+                        </div>
+                    </div>
+                </div>
+                    
+            </div>
+                
+        </div>
+    </div>

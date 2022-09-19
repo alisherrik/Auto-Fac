@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CBackAnd_005CRiderProjects_005CConnectToEntity_005CConnectToEntity_005Cbin_005CDebug_005Cnet5_002E0_005CMicrosoft_002EEntityFrameworkCore_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CBackAnd_005CRiderProjects_005CConnectToEntity_005CConnectToEntity_005Cbin_005CDebug_005Cnet5_002E0_005CPomelo_002EEntityFrameworkCore_002EMySql_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005CBackAnd_005CRiderProjects_005CConnectToEntity_005CConnectToEntity_005Cbin_005CDebug_005Cnet5_002E0_005CPomelo_002EJsonObject_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;PhysicalFolder Path="C:\Users\BackAnd\.nuget\packages\pomelo.entityframeworkcore.mysql\5.0.0" Loaded="True" /&gt;&#xD;
+  &lt;PhysicalFolder Path="C:\Users\BackAnd\.nuget\packages\pomelo.entityframeworkcore.mysql\5.0.0-alpha.1" Loaded="True" /&gt;&#xD;
+  &lt;PhysicalFolder Path="C:\Users\BackAnd\.nuget\packages\pomelo.entityframeworkcore.mysql\5.0.4" Loaded="True" /&gt;&#xD;
+  &lt;PhysicalFolder Path="C:\Users\BackAnd\.nuget\packages\pomelo.entityframeworkcore.mysql\6.0.0-preview.5" Loaded="True" /&gt;&#xD;
+  &lt;PhysicalFolder Path="C:\Users\BackAnd\.nuget\packages\pomelo.entityframeworkcore.mysql\6.0.2" Loaded="True" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String></wpf:ResourceDictionary>

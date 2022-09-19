@@ -1,0 +1,26 @@
+﻿@model Auto_Fac.ViewModels.DepartanemtProfessionViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_LayoutAdmin";
+}
+
+<form asp-controller="Admin" asp-action="CreateProfession" method="post">
+    <div class="container">
+        <div class="card col-md-12">
+            <div class="card-header">
+                New Faculty
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="col-form-label">Name Profession</label>
+                    <input type="hidden" asp-for="Departament.id">
+                    <input asp-for="Profession.Name" type="text" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Next</button>
+            </div>
+        </div>
+    
+    </div>
+</form>
+

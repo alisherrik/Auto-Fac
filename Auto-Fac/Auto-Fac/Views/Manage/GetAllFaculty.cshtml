@@ -1,0 +1,17 @@
+﻿@using Auto_Fac.Models.Faculty
+@model Auto_Fac.Models.Faculty.Faculty
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_LayoutAdmin";
+}
+<div class="container">
+    <div class="card col-md-12">
+        <div class="card-header">
+            Факултети @Model.Name
+        </div>
+        <div class="card-body">
+            <a asp-controller="Manage" asp-action="GetAllDepartaments" asp-route-id="@Model.id">Дидани Кафедрахо</a>
+        </div>
+    </div>
+</div>

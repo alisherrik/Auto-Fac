@@ -1,0 +1,28 @@
+﻿@model Auto_Fac.Models.Faculty.Faculty
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Faculty</title>
+</head>
+<body>
+<form asp-controller="Admin" asp-action="CreateFaculty" method="post">
+    <div class="container">
+        <div class="card col-md-12">
+            <div class="card-header">
+                New Faculty
+            </div>
+            <div class="card-body">
+    
+                <div class="form-group">
+                    <label class="col-form-label">Name Faculty</label>
+                    <input asp-for="Name" type="text" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">Next</button>
+            </div>
+        </div>
+    
+    </div>
+</form>
+
+</body>
+</html>

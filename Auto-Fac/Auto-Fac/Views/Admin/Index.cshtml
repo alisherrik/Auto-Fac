@@ -1,0 +1,34 @@
+﻿@model Auto_Fac.Models.admin
+
+@{
+    ViewBag.Title = "Admin Panel";
+   
+}
+<div class="container">
+    <form class="row justify-content-center " asp-controller="Admin" asp-action="login" method="post">
+        <div class="card col-md-6">
+            <div class="card-header">
+                <h2 class="text-success">Admin Panel</h2>
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <label class="form-label">UserName</label>
+                    <input asp-for="login" type="text" class="form-control"/>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Password</label>
+                    <input asp-for="Password" type="password" class="form-control"/>
+                </div>
+                <button type="submit" class="btn btn-success form-control ">Submit</button>
+               
+            </div>
+            <div class="card-footer">
+                 <p class="text-danger">@ViewBag.ErrorLogin</p>
+            </div>
+        </div>
+        
+    </form>
+
+</div>
+
+
