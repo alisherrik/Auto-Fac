@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UNZWJMiWdClixhc4qGhH7ZOiMtl9GdCkDzOPRfBK7ygjkT8rQFvHCb6Jwg47JC0iFegFYpPrQW8XxoNhrK4Ddg==",
+  "dgSpecHash": "WwH+PcY3embcI1mWpE961vfsoT470LNzHP+QgNev+CyJGXI0SqA+5lnfo/hgrXJpqwmLRievigVVgJ1tMvsDvA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\BackAnd\\RiderProjects\\Auto-Fac\\Auto-Fac\\Auto-Fac.csproj",
+  "projectFilePath": "C:\\Users\\BackAnd\\Desktop\\Git\\Auto-Fac\\Auto-Fac\\Auto-Fac\\Auto-Fac.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\BackAnd\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\BackAnd\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

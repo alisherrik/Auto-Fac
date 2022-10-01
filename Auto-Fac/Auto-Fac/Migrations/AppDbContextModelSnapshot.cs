@@ -24,9 +24,10 @@ namespace Auto_Fac.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.Property<int>("idFaculty")
@@ -44,14 +45,39 @@ namespace Auto_Fac.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("id");
 
                     b.ToTable("Faculties");
+                });
+
+            modelBuilder.Entity("Auto_Fac.Models.Faculty.Professions.Groups", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdFaculty")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdProfession")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<int?>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Groups");
                 });
 
             modelBuilder.Entity("Auto_Fac.Models.Faculty.Professions.LessonSchedule", b =>
@@ -61,9 +87,10 @@ namespace Auto_Fac.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.Property<int>("idCourse")
@@ -87,9 +114,10 @@ namespace Auto_Fac.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("id");
@@ -104,9 +132,10 @@ namespace Auto_Fac.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.HasKey("id");
@@ -121,15 +150,22 @@ namespace Auto_Fac.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
-                    b.Property<int>("Status")
+                    b.Property<int?>("Status")
                         .HasColumnType("int");
 
                     b.Property<string>("az")
                         .HasColumnType("longtext");
 
-                    b.Property<int>("idProfession")
+                    b.Property<int>("idCourse")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idDay")
+                        .HasColumnType("int");
+
+                    b.Property<int>("idGroups")
                         .HasColumnType("int");
 
                     b.Property<int>("idSimesters")
@@ -141,6 +177,24 @@ namespace Auto_Fac.Migrations
                     b.HasKey("id");
 
                     b.ToTable("WeekDays");
+                });
+
+            modelBuilder.Entity("Auto_Fac.Models.Faculty.Professions.day", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
+
+                    b.Property<int?>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("id");
+
+                    b.ToTable("days");
                 });
 
             modelBuilder.Entity("Auto_Fac.Models.Post", b =>
@@ -185,22 +239,27 @@ namespace Auto_Fac.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int>("IdFaculty")
                         .HasColumnType("int");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("Password")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<string>("login")
-                        .HasColumnType("longtext");
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)");
 
                     b.Property<int>("status")
                         .HasColumnType("int");

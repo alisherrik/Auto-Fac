@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
+using System.Linq;
 using Auto_Fac.Models;
 using Auto_Fac.Models.Faculty;
+using Auto_Fac.Models.Faculty.Professions;
 using Microsoft.AspNetCore.Mvc;
 using Auto_Fac.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace Auto_Fac.Controllers
 {
@@ -232,5 +236,88 @@ namespace Auto_Fac.Controllers
             _facultyRepository.CreateProfession(professionViewModel.Profession);
             return Redirect($"~/Manage/GetAllProfessions/{professionViewModel.Departament.id}");
         }
+        [HttpGet]
+        public ActionResult CreateGroupView(int idProfession)
+        {
+            ProfessionGroupViewModel groupViewModel = new ProfessionGroupViewModel();
+            groupViewModel.Groups = new Groups {IdProfession = idProfession};
+            Profession newProfession = _facultyRepository.ProfessionById(idProfession);
+            groupViewModel.Profession = new Profession()
+            {
+                Name =  newProfession.Name,
+                id =newProfession.id,
+                Status = newProfession.Status,
+                IdDepartament = newProfession.IdDepartament
+            };
+            return View(groupViewModel);
+        }
+        [HttpPost]
+        public ActionResult CreateGroup(ProfessionGroupViewModel viewModel)
+        {
+            viewModel.Groups.Status = 1;
+            viewModel.Groups.IdFaculty = _isLoged.user.IdFaculty;
+            _facultyRepository.CreateGroup(viewModel.Groups);
+            return Redirect($"~/Manage/GetAllGroups/?idProfession={viewModel.Groups.IdProfession}");
+        }
+
+        
+        [HttpGet]
+        public ActionResult CreatelessonScheduleView(int idGroup,int? idCourse)
+        {
+            HelperClass helperClass = new HelperClass(_facultyRepository);
+           var weekday = helperClass.NewWeekDays(idGroup,idCourse??1);
+            return View(weekday);
+        }
+        
+        [HttpPost]
+        public ActionResult CreateLessonSchedule(WeekDayViewModel tablesViewModel)
+        {
+            foreach (var item in tablesViewModel.LessonTablesViewModel)
+            {
+                foreach (var itemDaysList in item.DaysList)
+                {
+                    itemDaysList.idSimesters = 1;
+                    _facultyRepository.CreateWeekDays(itemDaysList);
+                }
+            }
+            return Redirect("Index");
+        }
+        [HttpPost]
+        public ActionResult CheckIsNewWeekDay(int IdGroup,int? idCourse,int? idSimester)
+        {
+            HelperClass helperClass = new HelperClass(_facultyRepository);
+            var weekDays=  helperClass.GetWeekDaysByProfssionCourse(IdGroup, idCourse??1, idSimester??1);
+            if (weekDays.LessonTablesViewModel[0].DaysList.Count !=0)
+            {
+                return Redirect($"~/Manage/GetLessonsWeekDay/?idGroup={IdGroup}&&idCourse={idCourse}");
+            }
+            else
+            {
+                return Redirect($"~/Admin/CreatelessonScheduleView/?idGroup={IdGroup}&&idCourse={idCourse}");
+            }
+        }
+
+        [HttpGet]
+        public ActionResult EditWeekDayView(int idGroup,int idCourse)
+        {
+            HelperClass helperClass = new HelperClass(_facultyRepository);
+            var weekDays = helperClass.EditWeekDays(idGroup,idCourse);
+            return View(weekDays);
+        }
+
+        [HttpPost]
+        public ActionResult EditWeekDay(WeekDayViewModel viewModel)
+        {
+            int IdGroup = 0;
+            int idCourse =0;
+            foreach (var item in viewModel.LessonTablesViewModel)
+            {
+                IdGroup = item.DaysList[0].idGroups;
+                idCourse = item.DaysList[0].idCourse;
+                _facultyRepository.EditWeekDay(item.DaysList.ToList());
+            }
+            return Redirect($"~/Manage/GetLessonsWeekDay/?idGroup={IdGroup}&&idCourse={idCourse}");
+        }
+        
     }
 }

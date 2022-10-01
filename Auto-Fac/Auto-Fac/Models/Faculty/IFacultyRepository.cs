@@ -15,6 +15,14 @@ namespace Auto_Fac.Models.Faculty
         public IEnumerable<Profession> GetAllProfessions(int idDepartament);
         public Faculty FacultyGetById(int id);
         public Departament DepartamentById(int id);
-
+        public Profession ProfessionById(int id);
+        public Groups CreateGroup(Groups groups);
+        public List<Groups> GetAllGroups(int idProfession, int idFaculty);
+        public Groups GetGroupById(int id);
+        public IList<day> DaysEnumerable();
+        public void CreateWeekDays(WeekDays days);
+        public List<WeekDays> GetAllWeekDays(int idGroup, int idCourse, int idSimester,int idDay);
+        public List<WeekDays> GetWeekDaysById(int id);
+        public void EditWeekDay(List<WeekDays> weekDays);
     }
 }

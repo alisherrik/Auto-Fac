@@ -2,6 +2,8 @@
 {
     public class Profession:BaseClass
     {
-      public  int IdDepartament { get; set; }
+       
+
+        public  int IdDepartament { get; set; }
     }
 }

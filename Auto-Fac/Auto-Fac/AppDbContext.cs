@@ -25,8 +25,9 @@ namespace Auto_Fac
         public DbSet<Departament> Departaments { get; set; }
         public DbSet<LessonSchedule> LessonSchedule { get; set; }
         public DbSet<Profession> Professions { get; set; }
+        public DbSet<Groups> Groups { get; set; }
         public DbSet<Simesters> Simesters { get; set; }
         public DbSet<WeekDays> WeekDays { get; set; }
-
+        public  DbSet<day> days { get; set; }
     }
 }

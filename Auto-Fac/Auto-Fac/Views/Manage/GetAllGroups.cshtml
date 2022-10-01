@@ -1,23 +1,23 @@
-﻿@model Auto_Fac.ViewModels.DepartanemtProfessionViewModel
+﻿@model Auto_Fac.ViewModels.ProfessionGroupViewModel
 
 @{
     ViewBag.Title = "title";
     Layout = "_LayoutAdmin";
 }
+
 <div class="container-fluid">
     <div class="card-header">
-            <div class="card-title"> Кафедраи @Model.Departament.Name </div>
+            <div class="card-title"> Кафедраи @Model.Profession.Name </div>
         </div>
         <div class="card-body">
             <div class="row">
-                @foreach (var item in Model.EnumerableProfession)
+                @foreach (var item in Model.GroupsEnumerable)
                 {
                     <div class="col-md-4 " style="margin-bottom:10px;">
                         <div class="card card-default">
                             <div class="card-body">
                                 <h3 class="card-title">@item.Name</h3>
-                               
-                                <a class="btn btn-info" asp-controller="Manage" asp-action="GetAllGroups" asp-route-idProfession="@item.id">Go somewhere</a>
+                                <a class="btn btn-info" asp-controller="Manage" asp-action="GetLessonsWeekDay" asp-route-idGroup="@item.id">Go somewhere</a>
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                 <div class="col-md-4" style="margin-bottom:10px;">
                     <div class="card card-default">
                         <div class="card-body">
-                            <a class="btn btn-success form-control" asp-controller="Admin" asp-action="CreateProfessionView" asp-route-id="@Model.Departament.id"> + New Profession</a>
+                            <a class="btn btn-success form-control" asp-controller="Admin" asp-action="CreateGroupView" asp-route-idProfession="@Model.Profession.id"> + New Group</a>
                         </div>
                     </div>
                 </div>

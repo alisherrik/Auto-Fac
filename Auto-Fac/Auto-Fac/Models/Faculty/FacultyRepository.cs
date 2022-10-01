@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Auto_Fac.Models.Faculty.Professions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Auto_Fac.Models.Faculty
 {
@@ -75,5 +76,69 @@ namespace Auto_Fac.Models.Faculty
             var result = _dbContext.Departaments.FirstOrDefault(s => s.id.Equals(id));
             return result;
         }
+
+        public Profession ProfessionById(int id)
+        {
+            var profesion = _dbContext.Professions.FirstOrDefault(s => s.id.Equals(id));
+            return profesion;
+        }
+
+        public Groups CreateGroup(Groups groups)
+        {
+             _dbContext.Groups.Add(groups);
+             _dbContext.SaveChanges();
+            return groups;
+        }
+
+        public List<Groups> GetAllGroups(int idProfession, int idFaculty)
+        {
+            var groups =
+                _dbContext.Groups.Where(s => s.IdFaculty.Equals(idFaculty) && s.IdProfession.Equals(idProfession)).ToList();
+            return groups;
+        }
+
+        public Groups GetGroupById(int id)
+        {
+            var group = _dbContext.Groups.FirstOrDefault(s => s.id.Equals(id));
+            return group;
+        }
+
+        public IList<day> DaysEnumerable()
+        {
+            var days = _dbContext.days.ToList();
+            return days;
+        }
+
+        public void CreateWeekDays(WeekDays days)
+        {
+            _dbContext.WeekDays.Add(days);
+            _dbContext.SaveChanges();
+        }
+
+        public List<WeekDays> GetAllWeekDays(int idProfession, int idCourse, int idSimester,int idDay)
+        {
+            var weekday = _dbContext.WeekDays.Where(s =>
+                s.idCourse.Equals(idCourse) && s.idGroups.Equals(idProfession) && s.idSimesters.Equals(1) && s.idDay.Equals(idDay)).ToList();
+            return weekday;
+        }
+
+        public List<WeekDays> GetWeekDaysById(int id)
+        {
+          var weekday =  _dbContext.WeekDays.Where(s => s.id.Equals(id)).ToList();
+          return weekday;
+
+        }
+
+        public void EditWeekDay(List<WeekDays> weekDays)
+        {
+            foreach (var item in weekDays)
+            {
+              var EditDay =  _dbContext.WeekDays.Attach(item);
+              EditDay.State = EntityState.Modified;
+              _dbContext.SaveChanges();
+            }
+        }
+
+        
     }
 }

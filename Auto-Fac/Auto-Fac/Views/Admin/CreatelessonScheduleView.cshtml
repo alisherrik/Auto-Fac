@@ -1,0 +1,66 @@
+﻿@using System.Linq
+@using Auto_Fac.Models.Faculty.Professions
+@using Auto_Fac.ViewModels
+@using Microsoft.AspNetCore.Http.Features
+@using Microsoft.AspNetCore.Mvc.Filters
+@using Microsoft.AspNetCore.Mvc.ModelBinding.Validation
+@model WeekDayViewModel
+
+@{
+    
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+  
+}
+
+<div >
+    
+            
+    <form asp-controller="Admin" asp-action="CreateLessonSchedule" enctype="multipart/form-data"  method="post">
+                
+        @{
+            <div class="card-header">
+                <h3>Ҷадвали дарсии Гурӯхи @Model.Groups.Name</h3>
+                
+                 
+            </div>
+            for (int i = 0; i < Model.LessonTablesViewModel.Count; i++)
+                    {
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>@Model.LessonTablesViewModel[i].NameWeekDays</h2>
+                               
+                            </div>
+                            <div class="card-body">
+                                <table>
+                                    <tr>
+                                        <td>Номи фан</td>
+                                        <td>Аз</td>
+                                        <td>То</td>
+                                    </tr>
+
+                                    @for (int k = 0; k < Model.LessonTablesViewModel[i].DaysList.Count; k++)
+                                    {
+
+                                        <tr>
+                                            <input type="hidden" asp-for="@Model.LessonTablesViewModel[i].DaysList[k].id" >
+                                            <input type="hidden" asp-for="@Model.LessonTablesViewModel[i].DaysList[k].idDay" >
+                                            <input type="hidden" asp-for="@Model.LessonTablesViewModel[i].DaysList[k].idCourse"/>
+                                            <input type="hidden" asp-for="@Model.LessonTablesViewModel[i].DaysList[k].idGroups"/>
+                                            <td><input asp-for="@Model.LessonTablesViewModel[i].DaysList[k].Name" required></td>
+                                            <td><input asp-for="@Model.LessonTablesViewModel[i].DaysList[k].az" required></td>
+                                            <td><input asp-for="@Model.LessonTablesViewModel[i].DaysList[k].to" required></td>
+                                        </tr>
+
+
+                                    }
+
+                                </table>
+                            </div>
+                        </div>
+                    }
+                }
+                 <button type="submit" >Save</button>
+            </form>
+    </div>

@@ -834,11 +834,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\BackAnd\\RiderProjects\\Auto-Fac\\Auto-Fac\\Auto-Fac.csproj",
+      "projectUniqueName": "C:\\Users\\BackAnd\\Desktop\\Git\\Auto-Fac\\Auto-Fac\\Auto-Fac\\Auto-Fac.csproj",
       "projectName": "Auto-Fac",
-      "projectPath": "C:\\Users\\BackAnd\\RiderProjects\\Auto-Fac\\Auto-Fac\\Auto-Fac.csproj",
+      "projectPath": "C:\\Users\\BackAnd\\Desktop\\Git\\Auto-Fac\\Auto-Fac\\Auto-Fac\\Auto-Fac.csproj",
       "packagesPath": "C:\\Users\\BackAnd\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\BackAnd\\RiderProjects\\Auto-Fac\\Auto-Fac\\obj\\",
+      "outputPath": "C:\\Users\\BackAnd\\Desktop\\Git\\Auto-Fac\\Auto-Fac\\Auto-Fac\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BackAnd\\AppData\\Roaming\\NuGet\\NuGet.Config"

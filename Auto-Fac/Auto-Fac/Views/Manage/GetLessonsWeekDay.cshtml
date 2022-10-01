@@ -1,0 +1,71 @@
+﻿@model Auto_Fac.ViewModels.WeekDayViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_LayoutAdmin";
+}
+<div >
+@{
+    <form asp-controller="Admin" asp-action="CheckIsNewWeekDay" asp-route-idCourse="@Model.IdCourse" asp-route-IdGroup="@Model.Groups.id" enctype="multipart/form-data" method="post">
+        <div class="card-header">
+            <h3>Ҷадвали дарсии Гурӯхи @Model.Groups.Name</h3>
+            <input type="hidden" asp-for="Groups.id">
+        </div>
+        <div>
+            <select  asp-for="IdCourse">
+                <option value="1">Курси 1</option>
+                <option value="2">Курси 2</option>
+                <option value="3">Курси 3</option>
+                <option value="4">Курси 4</option>
+                <option value="5">Курси 5</option>
+            </select>
+            <button type="submit"> Ok </button>
+        </div>
+    </form>
+    for (int i = 0; i < Model.LessonTablesViewModel.Count; i++)
+        {
+                        
+            <div class="card">
+                <div class="card-header">
+                    <h2>@Model.LessonTablesViewModel[i].NameWeekDays</h2>
+                               
+                </div>
+                <div class="card-body">
+                    <table>
+                        <tr>
+                            <td>Номи фан</td>
+                            <td>Аз</td>
+                            <td>То</td>
+                        </tr>
+
+                        @for (int k = 0; k < Model.LessonTablesViewModel[i].DaysList.Count; k++)
+                        {
+                            
+                            <tr>
+                                <input type="hidden" asp-for="@Model.LessonTablesViewModel[i].DaysList[k].id" >
+                                <input type="hidden" asp-for="@Model.LessonTablesViewModel[i].DaysList[k].idDay" >
+                                <input type="hidden" asp-for="@Model.LessonTablesViewModel[i].DaysList[k].idGroups"/>
+                                <input type="hidden" asp-for="@Model.LessonTablesViewModel[i].DaysList[k].idCourse"/>
+                                <td><label >@Model.LessonTablesViewModel[i].DaysList[k].Name</label></td>
+                                <td><label >@Model.LessonTablesViewModel[i].DaysList[k].az</label></td>
+                                <td><label >@Model.LessonTablesViewModel[i].DaysList[k].to</label></td>
+                            </tr>
+
+
+                        }
+
+                    </table>
+                </div>
+            </div>
+        }
+    if (@Model.LessonTablesViewModel[0].DaysList.Count!=0)
+    {
+        <a asp-controller="Admin" asp-action="EditWeekDayView" 
+           asp-route-idGroup="@Model.LessonTablesViewModel[0].DaysList[0].idGroups" 
+           asp-route-idCourse="@Model.LessonTablesViewModel[0].DaysList[0].idCourse">Edit</a>
+    }
+    
+    }
+    
+</div>
+

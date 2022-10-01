@@ -1,0 +1,24 @@
+﻿@model Auto_Fac.ViewModels.ProfessionGroupViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_LayoutAdmin";
+}
+<div class="container">
+        <div class="card col-md-12">
+            <div class="card-header">
+                <h2>@Model.Profession.Name</h2>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Admin" asp-action="CreateGroup" method="post">
+                    <div class="form-group">
+                        <label class="col-form-label">@Model.Groups.Name</label>
+                        <input type="hidden" asp-for="Groups.IdProfession">
+                        <input type="hidden" asp-for="Groups.id">
+                        <input asp-for="Groups.Name" type="text" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Next</button>
+                </form>
+            </div>
+        </div>
+</div>

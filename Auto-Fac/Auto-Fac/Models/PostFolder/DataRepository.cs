@@ -18,7 +18,7 @@ namespace Auto_Fac.Models
         }
         public IEnumerable<Post> GetAll(int idFaculty)
         {
-            var posts = _DbContext.Posts.FromSqlRaw($"select * from posts where status =1 and idFaculty={idFaculty}");
+            var posts = _DbContext.Posts.Where(s => s.Status == 1 && s.idFaculty == idFaculty);
             return posts;
         }
 
